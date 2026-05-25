@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>2026 블루리본주간(금연포스터만들기)</title>
 <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
 <style>
@@ -12,52 +12,60 @@
         color: #334155;
         line-height: 1.6;
         margin: 0;
-        padding: 40px 20px;
+        padding: 15px 10px;
+        -webkit-text-size-adjust: none;
     }
     .document-wrapper {
         max-width: 800px;
         margin: 0 auto;
         background-color: #ffffff;
-        padding: 50px;
+        padding: 25px 20px;
         border-radius: 12px;
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
         border-top: 5px solid #2563eb;
+        box-sizing: border-box;
     }
     .header-container {
         border-bottom: 2px solid #f1f5f9;
-        padding-bottom: 20px;
-        margin-bottom: 35px;
+        padding-bottom: 15px;
+        margin-bottom: 25px;
     }
     h1 {
         text-align: center;
-        margin: 0 0 25px 0;
+        margin: 0 0 20px 0;
         color: #0f172a;
-        font-size: 2.2em;
+        font-size: 1.6em;
         letter-spacing: -0.5px;
         font-weight: 700;
+        word-break: keep-all;
     }
     .info-row {
         display: flex;
+        flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        font-size: 1.05em;
+        font-size: 0.95em;
         font-weight: 600;
+        gap: 10px;
     }
     .date-text {
         color: #64748b;
+        white-space: nowrap;
     }
     .badge {
         background-color: #eff6ff;
         color: #2563eb;
-        padding: 6px 16px;
+        padding: 6px 12px;
         border-radius: 20px;
         border: 1px solid #bfdbfe;
+        white-space: nowrap;
+        font-size: 0.9em;
     }
     h2 {
         color: #0f172a;
-        font-size: 1.4em;
-        margin-top: 40px;
-        margin-bottom: 20px;
+        font-size: 1.25em;
+        margin-top: 30px;
+        margin-bottom: 15px;
         display: flex;
         align-items: center;
     }
@@ -65,26 +73,29 @@
         content: '';
         display: inline-block;
         width: 4px;
-        height: 20px;
+        height: 18px;
         background-color: #2563eb;
-        margin-right: 10px;
+        margin-right: 8px;
         border-radius: 2px;
+        flex-shrink: 0;
     }
     .step-box {
         background-color: #ffffff;
         border: 1px solid #e2e8f0;
         border-radius: 8px;
-        padding: 30px 40px;
-        margin-bottom: 30px;
+        padding: 20px 15px;
+        margin-bottom: 20px;
+        box-sizing: border-box;
     }
     ol, ul {
         padding-left: 20px;
         margin: 0;
     }
     li {
-        margin-bottom: 24px;
+        margin-bottom: 20px;
         color: #475569;
-        font-size: 1.05em;
+        font-size: 0.98em;
+        word-break: keep-all;
     }
     li:last-child {
         margin-bottom: 0;
@@ -93,35 +104,35 @@
         font-weight: 700;
         color: #1e293b;
         display: block;
-        margin-bottom: 8px;
-        font-size: 1.1em;
+        margin-bottom: 6px;
+        font-size: 1.05em;
     }
     .btn-primary {
-        display: inline-block;
+        display: block;
+        text-align: center;
         background-color: #2563eb;
         color: #ffffff;
         text-decoration: none;
-        padding: 12px 24px;
+        padding: 12px 20px;
         border-radius: 6px;
         font-weight: 600;
         margin: 12px 0;
         transition: all 0.2s ease;
         box-shadow: 0 2px 4px rgba(37, 99, 235, 0.15);
+        box-sizing: border-box;
     }
     .btn-primary:hover {
         background-color: #1d4ed8;
-        box-shadow: 0 4px 6px rgba(37, 99, 235, 0.25);
-        transform: translateY(-1px);
     }
     .tip-text {
-        display: inline-block;
+        display: block;
         background-color: #f8fafc;
         border: 1px solid #e2e8f0;
         color: #475569;
-        padding: 8px 16px;
+        padding: 10px 14px;
         border-radius: 6px;
-        font-size: 0.95em;
-        margin-top: 5px;
+        font-size: 0.9em;
+        margin-top: 8px;
     }
     .highlight {
         color: #2563eb;
@@ -131,20 +142,58 @@
         background-color: #fef2f2;
         border: 1px solid #fecaca;
         color: #991b1b;
-        padding: 20px;
+        padding: 15px;
         border-radius: 8px;
-        margin-top: 24px;
+        margin-top: 20px;
+        box-sizing: border-box;
     }
     .warning-title {
         font-weight: 700;
         display: block;
-        margin-bottom: 12px;
-        font-size: 1.1em;
+        margin-bottom: 10px;
+        font-size: 1.05em;
         color: #b91c1c;
+    }
+    .warning-box ul {
+        padding-left: 18px;
     }
     .warning-box ul li {
         color: #991b1b;
-        margin-bottom: 10px;
+        margin-bottom: 8px;
+        font-size: 0.95em;
+    }
+
+    @media (min-width: 480px) {
+        body {
+            padding: 40px 20px;
+        }
+        .document-wrapper {
+            padding: 50px;
+        }
+        h1 {
+            font-size: 2.2em;
+        }
+        .info-row {
+            font-size: 1.05em;
+        }
+        .badge {
+            font-size: 1em;
+        }
+        h2 {
+            font-size: 1.4em;
+        }
+        .step-box {
+            padding: 30px 40px;
+        }
+        li {
+            font-size: 1.05em;
+        }
+        .btn-primary {
+            display: inline-block;
+        }
+        .warning-box {
+            padding: 20px;
+        }
     }
 </style>
 </head>
